@@ -1,0 +1,46 @@
+version: 2
+ 
+sources:
+  - name: adventure_works
+    description: This is a replica of the Postgres database used by our app
+    tables:
+      - name: salesorderdetail
+        description: >
+          One record per order. Includes cancelled and deleted orders.
+        columns:
+          - name: salesorderid
+            description: Primary key of the orders table
+            tests:
+              - unique
+      - name: creditcard
+        description: essa tabela contém informação sobre os clientes na adventure works.
+      - name: currencyrate
+        description: essa tabela contém
+      - name: customer
+        description: essa tabela contém informação sobre os clientes na adventure works.
+      - name: employee
+        description: essa tabela contém informação sobre os colaboradores na adventure works.
+      - name: person
+        description: essa tabela contém
+      - name: personcreditcard
+        description: essa tabela contém
+      - name: product
+        description: essa tabela contém informação sobre os produtos na adventure works.
+      - name: purchaseorderdetail
+        description: essa tabela contém
+      - name: purchaseorderheader
+        description: essa tabela contém
+      - name: salesorderheader
+        description: essa tabela contém informação sobre os ordem de venda na adventure works.
+      - name: salesperson
+        description: essa tabela contém
+      - name: salesterritory
+        description: essa tabela contém informação sobre os região de venda na adventure works.
+      - name: shipmethod
+        description: essa tabela contém
+      - name: stateprovince
+        description: essa tabela contém
+      - name: store
+        description: essa tabela contém
+      - name: vsalesperson
+        description: essa tabela contém
