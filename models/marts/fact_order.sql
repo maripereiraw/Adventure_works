@@ -15,6 +15,10 @@ with
         select *
         from {{ ref('dim_shipper')}}
     )
+    , territorys as (
+        select *
+        from {{ ref('dim_territory')}}
+    )
     , sales_order_detail as (
         select 
             order_detail.salesorderdetailid     
@@ -38,7 +42,7 @@ with
             , orders.billtoaddressid        
             , customers.creditcardid    
             , employees.salespersonid   
-            , employees.territoryid     
+            , territorys.territoryid     
             , customers.customerid  
  
             , orders.purchaseordernumber            
@@ -56,7 +60,8 @@ with
             from {{ ref('stg_salesorderheader') }} as orders
         left join customers on orders.customerid = customers.customerid 
         left join employees on orders.salespersonid = employees.salespersonid
-        left join shippers on orders.shipmethodid = shippers.shipmethodid   
+        left join shippers on orders.shipmethodid = shippers.shipmethodid
+        left join territorys on orders.territoryid = territorys.territoryid 
     )
     , final as (
         select 
