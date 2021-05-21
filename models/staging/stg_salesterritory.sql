@@ -1,6 +1,6 @@
 with
     source as (
-        select *
+        select *	
  
         from {{ source('adventure_works','salesterritory') }}
     )
