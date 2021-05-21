@@ -1,7 +1,7 @@
 with
-    selected as (
+    source as (
         select 
-             productid	
+            productid	
 
             , productmodelid	
             , productsubcategoryid
@@ -28,8 +28,15 @@ with
             , color	
             , sellstartdate		
             , weight	
+
+            , _sdc_table_version	
+            , _sdc_received_at	
+            , _sdc_sequence	
+            , __sdc_primary_key		
+            , _sdc_batched_at		
+            , _sdc_extracted_at	
  
-        from {{ ref('stg_product_p') }}
+        from {{ source('adventure_works','p') }}
     )
- 
-select * from selected
+    
+select * from source

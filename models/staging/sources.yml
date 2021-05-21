@@ -20,6 +20,8 @@ sources:
         description: essa tabela contém informação sobre os clientes na adventure works.
       - name: employee
         description: essa tabela contém informação sobre os colaboradores na adventure works.
+      - name: p
+        description: essa tabela contém informação sobre os colaboradores na adventure works.
       - name: person
         description: essa tabela contém
       - name: personcreditcard
