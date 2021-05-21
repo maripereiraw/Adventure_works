@@ -19,11 +19,15 @@ with
         select *
         from {{ ref('dim_territory')}}
     )
+    , offer as (
+        select *
+        from {{ ref('dim_specialoffe')}}
+    )
     , sales_order_detail as (
         select 
             order_detail.salesorderdetailid     
             , order_detail.salesorderid     
-            , order_detail.specialofferid   
+            , offer.specialofferid   
             , products.productid    
             , order_detail.orderqty     
             , order_detail.unitprice                
@@ -32,6 +36,7 @@ with
  
         from {{ ref('stg_salesorderdetail') }} as order_detail
         left join products on order_detail.productid = products.productid
+        left join offer on order_detail.specialofferid  = offer.specialofferid 
     )
     , sales_orders as (
         select 

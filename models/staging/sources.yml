@@ -42,5 +42,7 @@ sources:
         description: essa tabela contém
       - name: store
         description: essa tabela contém
+      - name: specialoffer
+        description: essa tabela contém
       - name: vsalesperson
         description: essa tabela contém
