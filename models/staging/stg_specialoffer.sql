@@ -1,18 +1,21 @@
 with
     source as (
         select 
-            specialofferid		
-            , startdate		
+            /*Primary key*/
+            specialofferid	
+
+            , type		
+            , category		
+            , discountpct	
+            , minqty		
             , maxqty		
+            , startdate		
+            , enddate	
+            , description
             , modifieddate	
             , rowguid	
-            , type		
-            , discountpct	
-            , category		
-            , description
-            , minqty		
-            , enddate	
 
+             /* Stich columns*/ 
             , _sdc_received_at	
             , _sdc_sequence		
             , _sdc_batched_at		

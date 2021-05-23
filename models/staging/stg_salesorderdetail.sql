@@ -1,18 +1,22 @@
 with
     source as (
         select 
-            salesorderdetailid      
+            /*Primary key*/
+            salesorderdetailid
+
+            /*Foreing key*/       
             , salesorderid      
             , specialofferid    
             , productid 
  
             , orderqty      
             , unitprice     
+            , unitpricediscount     
+            , carriertrackingnumber     
             , modifieddate      
             , rowguid       
-            , carriertrackingnumber     
-            , unitpricediscount     
- 
+
+             /* Stich columns*/  
             , _sdc_table_version        
             , _sdc_received_at      
             , _sdc_sequence     

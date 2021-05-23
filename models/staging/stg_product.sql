@@ -25,7 +25,8 @@ with
             , color 
             , sellstartdate     
             , weight
- 
+
+             /* Stich columns*/ 
             , _sdc_table_version        
             , _sdc_received_at      
             , _sdc_sequence     

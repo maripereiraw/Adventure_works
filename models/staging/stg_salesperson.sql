@@ -1,15 +1,20 @@
 with
     source as (
         select 
-            businessentityid        
+
+            /*Foreing key*/ 
+            businessentityid
+            , territoryid   
+
             , salesquota    
-            , modifieddate      
-            , rowguid   
             , saleslastyear     
             , commissionpct 
-            , territoryid   
             , bonus 
             , salesytd          
+            , modifieddate      
+            , rowguid   
+            
+             /* Stich columns*/ 
             , _sdc_table_version        
             , _sdc_extracted_at     
             , _sdc_received_at  

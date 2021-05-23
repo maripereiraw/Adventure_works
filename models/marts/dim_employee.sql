@@ -14,33 +14,31 @@ with
     , fim_employee as (
         select
  
-            em.loginid      
-            , em.businessentityid       
-            , em.nationalidnumber   
-            , em.sickleavehours     
-            , em.currentflag                
-            , em.gender     
-            , em.hiredate       
-            , em.salariedflag       
-            , em.birthdate      
-            , em.maritalstatus      
-            , em.organizationnode       
-            , em.vacationhours      
-            , em.jobtitle       
- 
-            , sp.salesquota     
-            , sp.saleslastyear      
-            , sp.commissionpct  
-            , sp.territoryid        
-            , sp.salesytd
- 
-            , st.salespersonid  
-            , st.name       
+            st.salespersonid  
+            , st.name   
 
+            , em.loginid      
+            , em.businessentityid       
+            , em.jobtitle       
+            , em.nationalidnumber   
+            , em.gender     
+            , em.birthdate      
+            , em.sickleavehours     
+            , em.maritalstatus      
+            , em.hiredate       
+            , em.organizationnode       
+            , em.currentflag                
+            , em.salariedflag       
+            , em.vacationhours              
             
             from em
-            left join sp on em.businessentityid = sp.businessentityid   
             left join st on em.businessentityid = st.businessentityid
     )
- 
-select * from fim_employee
+    , transformed as (
+        select 
+            row_number () over (order by salespersonid  ) as salesperson_sk
+            , *
+        from fim_employee
+    )
+    
+select * from transformed

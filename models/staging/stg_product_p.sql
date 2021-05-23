@@ -1,34 +1,36 @@
 with
     source as (
         select 
-            productid	
+            /*Primary key*/        
+            productid		
 
+             /*Foreing key*/ 
             , productmodelid	
             , productsubcategoryid
 
-            , sellenddate		
-            , safetystocklevel	
-            , finishedgoodsflag	
-            , class	
-            , makeflag	
-            , productnumber		
-            , reorderpoint	
-            , modifieddate	
-            , rowguid	
-            , id	
-            , weightunitmeasurecode	
-            , standardcost		
             , name		
-            , style
-            , sizeunitmeasurecode	
-            , listprice	
-            , daystomanufacture		
-            , productline		
-            , size	
+            , class	
             , color	
+            , productnumber		
+            , safetystocklevel	
+            , sellenddate		
+            , daystomanufacture		
             , sellstartdate		
             , weight	
+            , size	
+            , listprice	
+            , sizeunitmeasurecode	
+            , style
+            , standardcost		
+            , weightunitmeasurecode	
+            , reorderpoint	
+            , makeflag	
+            , productline		
+            , finishedgoodsflag	
+            , rowguid	
+            , modifieddate	
 
+             /* Stich columns*/ 
             , _sdc_table_version	
             , _sdc_received_at	
             , _sdc_sequence	

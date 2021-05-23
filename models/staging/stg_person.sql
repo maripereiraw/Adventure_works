@@ -1,19 +1,22 @@
 with
     source as (
         select 
+        
+            /*Foreing key*/             
             businessentityid
  
-            , lastname      
-            , persontype        
-            , namestyle     
-            , suffix    
-            , modifieddate  
-            , rowguid   
-            , emailpromotion    
             , title     
             , firstname     
             , middlename
-        
+            , lastname      
+            , persontype        
+            , suffix    
+            , emailpromotion    
+            , namestyle     
+            , rowguid   
+            , modifieddate  
+
+            /* Stich columns*/         
             , _sdc_table_version        
             , _sdc_sequence 
             , _sdc_received_at      

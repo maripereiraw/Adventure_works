@@ -1,14 +1,16 @@
 with
     source as (
         select 
+            /*Primary key*/        
             shipmethodid
                     
-            , modifieddate      
-            , rowguid       
             , name  
             , shiprate      
             , shipbase      
- 
+            , modifieddate      
+            , rowguid       
+
+             /* Stich columns*/  
             , _sdc_extracted_at     
             , _sdc_table_version        
             , _sdc_received_at      

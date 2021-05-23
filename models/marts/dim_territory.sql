@@ -17,4 +17,10 @@ with
 
             from st
     )
-    select * from fim_territory
+    , transformed as (
+        select 
+            row_number () over (order by territoryid) as territory_sk
+            , *
+        from fim_territory
+    )   
+select * from transformed 

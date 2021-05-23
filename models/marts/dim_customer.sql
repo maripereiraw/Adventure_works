@@ -25,27 +25,33 @@ with
             , cl.personid           
             , cl.territoryid        
             , cl.storeid    
- 
+
             , pe.businessentityid       
-            , pe.lastname       
-            , pe.persontype     
-            , pe.namestyle      
-            , pe.suffix     
-            , pe.emailpromotion 
             , pe.title      
             , pe.firstname      
             , pe.middlename
- 
+            , pe.lastname       
+            , pe.persontype     
+            , pe.suffix     
+            , pe.emailpromotion 
+            , pe.namestyle      
+
             , cc.creditcardid
             , cc.cardtype   
-            , cc.expyear
-            , cc.expmonth       
             , cc.cardnumber
+            , cc.expmonth       
+            , cc.expyear
             
             from cl
             left join pe on cl.rowguid = pe.rowguid
             left join pcc on pe.businessentityid = pcc.businessentityid
             left join cc on pcc.creditcardid = cc.creditcardid
     )
-   
-select * from fim_customer
+    , transformed as (
+        select 
+            row_number () over (order by customerid ) as customer_sk
+            , *
+        from fim_customer
+    )
+    
+select * from transformed

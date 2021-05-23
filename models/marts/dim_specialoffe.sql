@@ -6,18 +6,22 @@ with
  
     , fim_offer as (
         select
-            specialofferid		
-            , startdate		
-            , maxqty		
-            , modifieddate		
+            specialofferid	
             , type		
-            , discountpct	
             , category		
-            , description
+            , discountpct	
             , minqty		
+            , maxqty		
+            , startdate		
             , enddate	
+            , description
 
             from so
     )
- 
-select * from fim_offer
+    , transformed as (
+        select 
+            row_number () over (order by specialofferid) as specialoffer_sk
+            , *
+        from fim_offer
+    )   
+select * from transformed 

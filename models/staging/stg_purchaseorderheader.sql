@@ -1,20 +1,24 @@
 with
     source as (
         select 
-            purchaseorderid     
-            , shipmethodid      
+            /*Primary key*/
+            purchaseorderid    
+
+            /*Foreing key*/  
             , employeeid    
             , vendorid  
+            , shipmethodid      
             
-            , modifieddate      
+            , subtotal  
             , taxamt        
             , status
-            , orderdate 
-            , subtotal  
-            , revisionnumber    
             , freight   
+            , orderdate 
             , shipdate  
- 
+            , revisionnumber    
+            , modifieddate      
+            
+             /* Stich columns*/  
             , _sdc_sequence 
             , _sdc_extracted_at 
             , _sdc_batched_at   

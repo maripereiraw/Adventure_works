@@ -1,13 +1,18 @@
 with
     source as (
         select 
-            customerid 
+            /*Primary key*/
+            customerid
+
+             /*Foreing key*/ 
             , personid  
-            , rowguid       
             , territoryid       
             , storeid       
+
+            , rowguid       
             , modifieddate  
- 
+            
+             /* Stich columns*/ 
             , _sdc_table_version    
             , _sdc_received_at  
             , _sdc_sequence 

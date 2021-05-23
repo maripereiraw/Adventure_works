@@ -1,7 +1,10 @@
 with
     source as (
         select 
-            purchaseorderdetailid       
+            /*Primary key*/
+            purchaseorderdetailid
+
+             /*Foreing key*/        
             , purchaseorderid       
             , productid 
             
@@ -9,9 +12,10 @@ with
             , receivedqty       
             , rejectedqty       
             , unitprice     
-            , modifieddate      
             , duedate
- 
+            , modifieddate      
+
+             /* Stich columns*/  
             , _sdc_table_version
             , _sdc_batched_at   
             , _sdc_sequence 

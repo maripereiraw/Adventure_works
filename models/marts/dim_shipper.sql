@@ -21,13 +21,13 @@ with
             , poh.purchaseorderid       
             , poh.employeeid    
             , poh.vendorid      
+            , poh.subtotal  
             , poh.taxamt        
             , poh.status
-            , poh.orderdate 
-            , poh.subtotal  
-            , poh.revisionnumber    
             , poh.freight   
+            , poh.orderdate 
             , poh.shipdate  
+            , poh.revisionnumber    
  
             , pod.purchaseorderdetailid             
             , pod.productid 
@@ -41,5 +41,10 @@ with
             left join poh on sm.shipmethodid = poh.shipmethodid 
             left join pod on poh.purchaseorderid = pod.purchaseorderid
     )
- 
-select * from fim_shippers
+    , transformed as (
+        select 
+            row_number () over (order by shipmethodid) as shipmethod_sk
+            , *
+        from fim_shippers
+    )   
+select * from transformed 

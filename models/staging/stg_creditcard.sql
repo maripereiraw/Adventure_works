@@ -1,13 +1,16 @@
 with
     source as (
         select 
+         /*Primary key*/
             creditcardid
+
             , cardtype  
+            , cardnumber
+            , expmonth      
             , expyear
             , modifieddate  
-            , expmonth      
-            , cardnumber
-                
+
+         /* Stich columns*/               
             , _sdc_batched_at       
             , _sdc_received_at      
             , _sdc_sequence 

@@ -46,5 +46,9 @@ sources:
         description: essa tabela contém
       - name: specialoffer
         description: essa tabela contém
+      - name: salesorderheadersalesreason
+        description: essa tabela contém
+      - name: salesreason
+        description: essa tabela contém        
       - name: vsalesperson
         description: essa tabela contém

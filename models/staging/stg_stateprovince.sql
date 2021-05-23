@@ -1,15 +1,20 @@
 with
     source as (
         select 
-            stateprovinceid         
-            , territoryid       
+            /*Primary key*/
+            stateprovinceid   
+
+            /*Foreing key*/       
+            , territoryid
+
+            , name as t_name
             , countryregioncode     
+            , stateprovincecode 
+            , isonlystateprovinceflag
             , modifieddate      
             , rowguid
-            , name as t_name
-            , isonlystateprovinceflag
-            , stateprovincecode 
-            
+
+             /* Stich columns*/            
             , _sdc_table_version    
             , _sdc_received_at      
             , _sdc_sequence 

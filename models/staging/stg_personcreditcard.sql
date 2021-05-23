@@ -1,11 +1,14 @@
 with
     source as (
         select 
+        
+            /*Foreing key*/ 
             creditcardid    
             , businessentityid
                     
             , modifieddate  
- 
+
+             /* Stich columns*/  
             , _sdc_extracted_at 
             , _sdc_received_at  
             , _sdc_sequence 

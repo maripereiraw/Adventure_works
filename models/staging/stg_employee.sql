@@ -1,23 +1,27 @@
 with
     source as (
         select 
-            loginid     
+            /*Primary key*/
+            loginid    
+
+              /*Foreing key*/            
             , businessentityid      
             
+            , jobtitle    
             , nationalidnumber  
-            , sickleavehours        
-            , currentflag       
-            , modifieddate      
-            , rowguid   
             , gender        
-            , hiredate      
-            , salariedflag      
             , birthdate     
             , maritalstatus     
+            , hiredate      
             , organizationnode      
+            , currentflag       
+            , salariedflag      
             , vacationhours     
-            , jobtitle      
- 
+            , sickleavehours        
+            , rowguid   
+            , modifieddate      
+
+            /* Stich columns*/ 
             , _sdc_table_version    
             , _sdc_received_at      
             , _sdc_sequence     

@@ -1,39 +1,36 @@
 with
     source as (
-        select 
-            salesorderid    
-            , shipmethodid      
-            , shiptoaddressid   
-            , currencyrateid
-            , billtoaddressid       
+        select
+            /*Primary key*/
+            salesorderid 
+
+             /*Foreing key*/    
             , creditcardid  
+            , currencyrateid
             , salespersonid 
-            , territoryid   
             , customerid    
+            , billtoaddressid       
+            , shiptoaddressid   
+            , shipmethodid      
+            , territoryid   
  
-            , purchaseordernumber       
-            , modifieddate      
-            , rowguid   
-            , taxamt        
-            , onlineorderflag   
-            , status    
-            , orderdate     
-            , creditcardapprovalcode        
             , subtotal  
-            , revisionnumber    
+            , taxamt        
+            , orderdate     
             , freight       
+            , shipdate  
             , duedate       
             , totaldue  
-            , shipdate  
             , accountnumber
-                
-            , _sdc_table_version    
-            , _sdc_received_at  
-            , _sdc_sequence 
-            , _sdc_batched_at   
-            , _sdc_extracted_at 
+            , revisionnumber    
+            , purchaseordernumber       
+            , onlineorderflag   
+            , creditcardapprovalcode        
+            , status    
+            , modifieddate      
+            , rowguid 
  
-        from {{ source('adventure_works','salesorderheader') }}
-    )
-    
-select * from source
+        from {{ source ('adventure_works','salesorderheader') }} 
+)
+select *
+from source
