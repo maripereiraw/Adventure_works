@@ -5,7 +5,7 @@ with
             currencyrateid	
            
             , tocurrencycode		
-            , endofdayrate	
+            , endofdayrate         
             , averagerate	
             , currencyratedate
             , fromcurrencycode		

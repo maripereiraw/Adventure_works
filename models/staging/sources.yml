@@ -11,44 +11,44 @@ sources:
           - name: salesorderid
             description: Primary key of the orders table
             tests:
-              - unique
+              - not_null
       - name: creditcard
-        description: essa tabela contém informação sobre os clientes na adventure works.
+        description: essa tabela contém informação sobre os cartão de crédito cadastrado na adventure works.
       - name: currencyrate
-        description: essa tabela contém
+        description: essa tabela contém informação sobre os taxa de câmbio na época da compra.
       - name: customer
         description: essa tabela contém informação sobre os clientes na adventure works.
       - name: employee
         description: essa tabela contém informação sobre os colaboradores na adventure works.
       - name: p
-        description: essa tabela contém informação sobre os colaboradores na adventure works.
+        description: essa tabela contém informação sobre os produtos na adventure works.
       - name: person
-        description: essa tabela contém
+        description: e
       - name: personcreditcard
-        description: essa tabela contém
+        description: essa tabela contém informação sobre a pessoa que possui cartão de crédito cadastrado na adventure works.
       - name: product
         description: essa tabela contém informação sobre os produtos na adventure works.
       - name: purchaseorderdetail
-        description: essa tabela contém
+        description: essa tabela contém detalhe do pedido de compra da adventure works.
       - name: purchaseorderheader
-        description: essa tabela contém
+        description: essa tabela contém detalhe do pedido de compra da adventure works.
       - name: salesorderheader
         description: essa tabela contém informação sobre os ordem de venda na adventure works.
       - name: salesperson
-        description: essa tabela contém
+        description: essa tabela contém informação sobre os vendedores na adventure works.
       - name: salesterritory
         description: essa tabela contém informação sobre os região de venda na adventure works.
       - name: shipmethod
-        description: essa tabela contém
+        description:  essa tabela contém informação sobre os métodos de entrega da adventure works.
       - name: stateprovince
-        description: essa tabela contém
+        description: essa tabela contém informação sobre os provincia de venda na adventure works.
       - name: store
-        description: essa tabela contém
+        description: essa tabela contém informação sobre as lojas da adventure works.
       - name: specialoffer
-        description: essa tabela contém
+        description: essa tabela contém informação sobre as ofertas da adventure works.
       - name: salesorderheadersalesreason
-        description: essa tabela contém
+        description: essa tabela contém informação sobre os motivo de vendas.
       - name: salesreason
-        description: essa tabela contém        
+        description: essa tabela contém informação sobre os motivo de vendas.      
       - name: vsalesperson
-        description: essa tabela contém
+        description: essa tabela contém informação sobre os vendedores na adventure works.

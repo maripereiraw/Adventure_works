@@ -3,29 +3,50 @@ with
    sales as (
         select *
             from {{ ref ('stg_salesorderheader') }} 
-   )
-   , currency_rate as (
+    )
+    , terrrotycode as (
+        select *
+            from {{ ref('stg_salesterritory') }} 
+    )
+    , currencyrate as (
         select 
             currencyrateid	
             , tocurrencycode		
-            , endofdayrate	
+            , endofdayrate
             , averagerate	
             , currencyratedate
             , fromcurrencycode	 
  
         from {{ ref('stg_currencyrate') }} 
-
     )
+
     , salesorder_USD as (
         select 
             sales.*
-            , (sales.subtotal/currency_rate.endofdayrate) as subtotal_USD
-            , (sales.totaldue/currency_rate.endofdayrate) as totaldue_USD
-            , (sales.taxamt/currency_rate.endofdayrate) as taxamt_USD
-            , (sales.freight/currency_rate.endofdayrate) as freight_USD
+            ,   
+            case
+                when countryregioncode = 'US' then subtotal 
+                else subtotal / endofdayrate  
+            end as subtotal_USD
+            ,
+                        case
+                when countryregioncode = 'US' then totaldue
+                else totaldue / endofdayrate  
+            end as totaldue_USD
+            ,
+                        case
+                when countryregioncode = 'US' then taxamt 
+                else taxamt / endofdayrate  
+            end as taxamt_USD
+            ,
+                        case
+                when countryregioncode = 'US' then freight
+                else freight / endofdayrate  
+            end as freight_USD
 
     from sales
-    left join currency_rate on sales.currencyrateid = currency_rate.currencyrateid
+    left join currencyrate on sales.currencyrateid = currencyrate.currencyrateid 
+    left join terrrotycode on sales.territoryid = terrrotycode.territoryid
     )
 
 select * from salesorder_USD
