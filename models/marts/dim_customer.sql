@@ -18,7 +18,18 @@ with
         select *
             from {{ ref('stg_creditcard') }} as cc
     )
- 
+    , spe as (
+        select *
+            from {{ ref('stg_salesperson') }} as spe
+    )
+    , tt as (
+        select
+            territoryid		
+            , countryregioncode			
+            , name as territoryname	
+
+        from {{ ref('stg_salesterritory') }} as tt
+    )	
     , fim_customer as (
         select
             cl.customerid 
@@ -41,9 +52,14 @@ with
             , cc.cardnumber
             , cc.expmonth       
             , cc.expyear
-            
+
+            , tt.territoryname	
+            , tt.countryregioncode		
+
             from cl
-            left join pe on cl.rowguid = pe.rowguid
+            left join tt on cl.territoryid = tt.territoryid
+            left join spe on tt.territoryid = spe.territoryid 
+            left join pe on spe.businessentityid = pe.businessentityid
             left join pcc on pe.businessentityid = pcc.businessentityid
             left join cc on pcc.creditcardid = cc.creditcardid
     )
